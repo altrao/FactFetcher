@@ -8,11 +8,11 @@ plugins {
     id("io.ktor.plugin") version "3.1.1"
 }
 
-group = "test.deutschebank"
+group = "test"
 version = "1.0-SNAPSHOT"
 
 application {
-    mainClass.set("test.deutschebank.ApplicationKt")
+    mainClass.set("test.ApplicationKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")

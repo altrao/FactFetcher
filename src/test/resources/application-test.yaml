@@ -1,0 +1,10 @@
+ktor:
+  deployment:
+    port: 0
+
+services:
+  facts:
+    cacheSize: 100
+    remote:
+      uselessFacts:
+        url: "https://example.com"

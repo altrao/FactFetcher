@@ -1,0 +1,13 @@
+ktor:
+  application:
+    modules:
+      - test.ApplicationKt.module
+  deployment:
+    port: "$PORT:8080"
+
+services:
+  facts:
+    cacheSize: "$CACHE:100"
+    remote:
+      uselessFacts:
+        url: "$FACTS_API:https://uselessfacts.jsph.pl/random.json?language=en"
