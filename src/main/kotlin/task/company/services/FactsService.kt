@@ -1,13 +1,13 @@
-package test.services
+package task.company.services
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.HttpRequestTimeoutException
 import io.ktor.client.request.get
-import test.configuration.FactsServiceConfiguration
-import test.model.Fact
-import test.model.Statistics
-import test.utils.logger
+import task.company.configuration.FactsServiceConfiguration
+import task.company.model.Fact
+import task.company.model.Statistics
+import task.company.utils.logger
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.collections.set

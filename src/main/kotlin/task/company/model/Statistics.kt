@@ -1,8 +1,8 @@
-package test.model
+package task.company.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import test.utils.AtomicIntegerSerializer
+import task.company.utils.AtomicIntegerSerializer
 import java.util.concurrent.atomic.AtomicInteger
 
 @Serializable

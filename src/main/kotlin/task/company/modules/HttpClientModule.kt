@@ -1,4 +1,4 @@
-package test.modules
+package task.company.modules
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO

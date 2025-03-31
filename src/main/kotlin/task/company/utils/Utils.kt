@@ -1,4 +1,4 @@
-package test.utils
+package task.company.utils
 
 import ch.qos.logback.classic.Logger
 import io.ktor.server.plugins.origin

@@ -1,4 +1,4 @@
-package test
+package task.company
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -13,9 +13,9 @@ import io.mockk.mockk
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.ktor.plugin.Koin
-import test.model.Statistics
-import test.routing.AdminRouting.configureAdminRouting
-import test.services.FactsService
+import task.company.model.Statistics
+import task.company.routing.AdminRouting.configureAdminRouting
+import task.company.services.FactsService
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.test.AfterTest
 import kotlin.test.Test

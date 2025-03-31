@@ -1,9 +1,8 @@
-package test.modules
+package task.company.modules
 
 import io.ktor.server.config.ApplicationConfig
 import org.koin.dsl.module
-import test.configuration.FactsServiceConfiguration
-import test.services.FactsService
+import task.company.configuration.FactsServiceConfiguration
 
 fun ApplicationConfig.buildConfigurationModule() = module {
     single {
@@ -12,5 +11,5 @@ fun ApplicationConfig.buildConfigurationModule() = module {
 }
 
 val factsServiceModule = module {
-    single { FactsService(get(), get()) }
+    single { task.company.services.FactsService(get(), get()) }
 }

@@ -1,7 +1,7 @@
-package test.model
+package task.company.model
 
 import kotlinx.serialization.Serializable
-import test.utils.getAdler32Checksum
+import task.company.utils.getAdler32Checksum
 
 @Serializable
 data class Fact(

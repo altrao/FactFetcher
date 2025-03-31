@@ -1,4 +1,4 @@
-package test
+package task.company
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -17,9 +17,8 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import test.configuration.FactsServiceConfiguration
-import test.model.Fact
-import test.services.FactsService
+import task.company.configuration.FactsServiceConfiguration
+import task.company.model.Fact
 
 class FactsServiceTest {
     private val uselessFactsConfig = FactsServiceConfiguration(100, "https://example.com")
@@ -30,7 +29,7 @@ class FactsServiceTest {
             respondJson(Fact("This is a test fact", "https://example.com", "test-fact"))
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
         val fact = factsService.fetchRandomFact()
 
         checkNotNull(fact)
@@ -44,7 +43,7 @@ class FactsServiceTest {
             throw Exception("Error")
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
         val fact = factsService.fetchRandomFact()
 
         assertNull(fact)
@@ -56,7 +55,7 @@ class FactsServiceTest {
             respondError(HttpStatusCode.InternalServerError, "Error")
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
         val fact = factsService.fetchRandomFact()
 
         assertNull(fact)
@@ -68,7 +67,7 @@ class FactsServiceTest {
             respondJson(Fact("Another test fact", "https://example.com", "another-fact"))
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
 
         factsService.fetchRandomFact()
 
@@ -81,7 +80,7 @@ class FactsServiceTest {
     @Test
     fun `should return null if not present in cache`() {
         val mockHttpClient = HttpClient()
-        val factsService = FactsService(mockHttpClient, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(mockHttpClient, uselessFactsConfig)
         val fact = factsService.getFactByShortenedUrl("non-existent-fact")
 
         assertNull(fact)
@@ -95,7 +94,7 @@ class FactsServiceTest {
             respondJson(Fact("Statistic test fact ${++count}", "https://example.com", "statistic-fact-$count"))
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
         factsService.fetchRandomFact()
         factsService.fetchRandomFact()
 
@@ -112,7 +111,7 @@ class FactsServiceTest {
             respondJson(Fact("Test fact", "https://example.com", "test-fact"))
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
         val fact1 = factsService.fetchRandomFact()
 
         checkNotNull(fact1)
@@ -138,7 +137,7 @@ class FactsServiceTest {
             )
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
 
         repeat(150) { factsService.fetchRandomFact() }
 
@@ -154,7 +153,7 @@ class FactsServiceTest {
             respondJson(Fact("Fact ${++count}", "https://example.com", "test-fact-$count"))
         }
 
-        val factsService = FactsService(client, uselessFactsConfig)
+        val factsService = task.company.services.FactsService(client, uselessFactsConfig)
         repeat(3) { factsService.fetchRandomFact() }
 
         // Test first page

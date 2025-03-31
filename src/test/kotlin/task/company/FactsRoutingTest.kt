@@ -1,4 +1,4 @@
-package test
+package task.company
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -17,14 +17,9 @@ import io.mockk.mockk
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.ktor.plugin.Koin
-import test.model.Fact
-import test.routing.FactsRouting.configureFactsRouting
-import test.services.FactsService
-import kotlin.test.AfterTest
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNull
-import kotlin.test.assertTrue
+import task.company.model.Fact
+import task.company.routing.FactsRouting.configureFactsRouting
+import kotlin.test.*
 
 class FactsRoutingTest {
     @AfterTest
@@ -224,12 +219,12 @@ class FactsRoutingTest {
         assertNull(response.headers["Location"])
     }
 
-    private fun ApplicationTestBuilder.buildCommon(mockkFactsService: FactsService.() -> Unit): HttpClient {
+    private fun ApplicationTestBuilder.buildCommon(mockkFactsService: task.company.services.FactsService.() -> Unit): HttpClient {
         install(Koin) {
             modules(
                 module {
                     single {
-                        mockk<FactsService>(relaxed = true, block = mockkFactsService)
+                        mockk<task.company.services.FactsService>(relaxed = true, block = mockkFactsService)
                     }
                 }
             )

@@ -1,4 +1,4 @@
-package test.configuration
+package task.company.configuration
 
 import io.ktor.server.config.ApplicationConfig
 import kotlinx.serialization.Serializable

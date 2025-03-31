@@ -1,4 +1,4 @@
-package test.utils
+package task.company.utils
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind

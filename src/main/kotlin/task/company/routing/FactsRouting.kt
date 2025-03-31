@@ -1,4 +1,4 @@
-package test.routing
+package task.company.routing
 
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
@@ -9,16 +9,16 @@ import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import io.ktor.server.routing.routing
 import org.koin.ktor.ext.inject
-import test.services.FactsService
-import test.utils.getShortenedUrl
-import test.utils.logger
+import task.company.services.FactsService
+import task.company.utils.getShortenedUrl
+import task.company.utils.logger
 
 
 object FactsRouting : BaseRouting {
     private val logger = logger()
 
     fun Application.configureFactsRouting() {
-        val factsService: FactsService by inject()
+        val factsService: task.company.services.FactsService by inject()
 
         routing {
             route("/facts") {
