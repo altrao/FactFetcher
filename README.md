@@ -80,8 +80,8 @@ The following properties can be configured in the `application.yaml` file:
 
 - Clone the repository:
   ```bash
-  git clone https://github.com/altrao/CompanyTest.git
-  cd CompanyTest
+  git clone https://github.com/altrao/FactFetcher.git
+  cd FactFetcher
   ```
 
 ### 2. Running the Application
@@ -102,12 +102,12 @@ The following properties can be configured in the `application.yaml` file:
 
 1. **Build the Docker image:**
    ```bash
-   docker build -t companytest .
+   docker build -t factfetcher .
    ```
 
 2. **Run the Docker container:**
    ```bash
-   docker run -p 8080:8080 companytest
+   docker run -p 8080:8080 factfetcher
    ```
 
 ### 3. Accessing Endpoints
